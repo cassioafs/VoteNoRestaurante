@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Votação :)</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+	<div>
+		<h1>Votação democrática para escolher onde vamos almoçar ;)</h1>
+	</div>
+
+	<span id="msgError" th:text="${error}"></span>
+	
+	
+	<form action="#" th:action="@{/votar}" method="post">
+		<div class="col-lg-3">
+			<select class="form-control" id="profissional" name="profissional">
+				<option value="">Selecione o profissional</option>
+				<option th:each="profissional : ${profissionais}"
+					th:value="${profissional.id}" th:text="${profissional.nome}"></option>
+			</select>
+		</div>
+
+		<div class="col-lg-3">
+			<select class="form-control" id="restaurante" name="restaurante">
+				<option value="">Selecione o Restaurante</option>
+				<option th:each="restaurante : ${restaurantes}"
+					th:value="${restaurante.id}" th:text="${restaurante.nome}"></option>
+			</select>
+		</div>
+
+		<div class="col-lg-3">
+
+			<button type="submit" class="btn btn-primary" id="votar">Votar</button>
+		</div>
+
+	</form>
+	
+	<a th:href="@{/resultado}">Resultado</a>
+	
+</body>
+</html>

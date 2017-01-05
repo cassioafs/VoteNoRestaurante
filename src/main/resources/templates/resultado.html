@@ -1,0 +1,49 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Votação :)</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+	<div>
+		<h1>E o vencedor é....</h1>
+		<br />
+		<h2>
+			<span id="vencedor" th:text="${vencedor.nome}"></span>
+		</h2>
+
+		<form action="#" th:action="@{/confirmar}" method="post">
+
+
+			<div class="col-lg-3">
+
+				<button type="submit" class="btn btn-primary">Cofirmar
+					Presenca</button>
+			</div>
+
+		</form>
+
+
+
+	</div>
+
+	<hr />
+
+	<table class="table">
+		<tr>
+			<th>Profissional</th>
+			<th>Quantidade</th>
+		</tr>
+		<tr th:each="voto : ${resultado}">
+			<td th:text="${voto.key.nome}"></td>
+			<td th:text="${voto.value}"></td>
+		</tr>
+	</table>
+
+	<a th:href="@{/}">Voltar</a>
+</body>
+</html>
